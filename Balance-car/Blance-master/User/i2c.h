@@ -8,11 +8,11 @@
 
 
 
-//MPU6050µÄAD0Òý½Å½ÓGNDÊ±£¬µØÖ·Îª0x68 ,½Ó3.3VÊ±£¬µØÖ·Îª0x69
+//MPU6050ï¿½ï¿½AD0ï¿½ï¿½ï¿½Å½ï¿½GNDÊ±ï¿½ï¿½ï¿½ï¿½Ö·Îª0x68 ,ï¿½ï¿½3.3VÊ±ï¿½ï¿½ï¿½ï¿½Ö·Îª0x69
 #define MPU6050_ADDR   0x68
 
 
-/*********************Èí¼þIICÊ¹ÓÃµÄºê****************************/
+/*********************ï¿½ï¿½ï¿½IICÊ¹ï¿½ÃµÄºï¿½****************************/
 
 //
 #define Soft_IIC_SDA 		GPIO_Pin_9
@@ -25,14 +25,14 @@
 #define READ_SDA		GPIO_ReadInputDataBit(Soft_IIC_PORT, Soft_IIC_SDA)
 
 
-void IIC_Init(void);                //³õÊ¼»¯IICµÄIO¿Ú				 
-int IIC_Start(void);				//·¢ËÍIIC¿ªÊ¼ÐÅºÅ
-void IIC_Stop(void);	  			//·¢ËÍIICÍ£Ö¹ÐÅºÅ
-void IIC_Send_Byte(u8 txd);			//IIC·¢ËÍÒ»¸ö×Ö½Ú
-u8 IIC_Read_Byte(unsigned char ack);//IIC¶ÁÈ¡Ò»¸ö×Ö½Ú
-int IIC_Wait_Ack(void); 				//IICµÈ´ýACKÐÅºÅ
-void IIC_Ack(void);					//IIC·¢ËÍACKÐÅºÅ
-void IIC_NAck(void);				//IIC²»·¢ËÍACKÐÅºÅ
+void IIC_Init(void);                //ï¿½ï¿½Ê¼ï¿½ï¿½IICï¿½ï¿½IOï¿½ï¿½				 
+int IIC_Start(void);				//ï¿½ï¿½ï¿½ï¿½IICï¿½ï¿½Ê¼ï¿½Åºï¿½
+void IIC_Stop(void);	  			//ï¿½ï¿½ï¿½ï¿½IICÍ£Ö¹ï¿½Åºï¿½
+void IIC_Send_Byte(u8 txd);			//IICï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ö½ï¿½
+u8 IIC_Read_Byte(unsigned char ack);//IICï¿½ï¿½È¡Ò»ï¿½ï¿½ï¿½Ö½ï¿½
+int IIC_Wait_Ack(void); 				//IICï¿½È´ï¿½ACKï¿½Åºï¿½
+void IIC_Ack(void);					//IICï¿½ï¿½ï¿½ï¿½ACKï¿½Åºï¿½
+void IIC_NAck(void);				//IICï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ACKï¿½Åºï¿½
 
 void IIC_Write_One_Byte(u8 daddr,u8 addr,u8 data);
 u8 IIC_Read_One_Byte(u8 daddr,u8 addr);	 

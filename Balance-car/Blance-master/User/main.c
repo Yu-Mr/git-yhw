@@ -2,20 +2,20 @@
 
 
 
-u16 voltage;								//µç³ØµçÑ¹
+u16 voltage;								//ï¿½ï¿½Øµï¿½Ñ¹
 
-u8 Flag_forward,Flag_back,Flag_left,Flag_right,Flag_speed=1;  //À¶ÑÀÒ£¿ØÏà¹ØµÄ±äÁ¿
-u8 Flag_stop=0,Flag_show=0;					//Í£Ö¹±êÖ¾Î»ºÍ ÏÔÊ¾±êÖ¾Î» Ä¬ÈÏÍ£Ö¹ ÏÔÊ¾´ò¿ª
+u8 Flag_forward,Flag_back,Flag_left,Flag_right,Flag_speed=1;  //ï¿½ï¿½ï¿½ï¿½Ò£ï¿½ï¿½ï¿½ï¿½ØµÄ±ï¿½ï¿½ï¿½
+u8 Flag_stop=0,Flag_show=0;					//Í£Ö¹ï¿½ï¿½Ö¾Î»ï¿½ï¿½ ï¿½ï¿½Ê¾ï¿½ï¿½Ö¾Î» Ä¬ï¿½ï¿½Í£Ö¹ ï¿½ï¿½Ê¾ï¿½ï¿½
 
-int nEncoder_left,nEncoder_right;				//×óÓÒ±àÂëÆ÷µÄÂö³å¼ÆÊý
-int Motor_pwm1,Motor_pwm2;					//µç»úPWM±ä
+int nEncoder_left,nEncoder_right;				//ï¿½ï¿½ï¿½Ò±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+int Motor_pwm1,Motor_pwm2;					//ï¿½ï¿½ï¿½PWMï¿½ï¿½
 
-float Accel_Y,Accel_X,Accel_Z,Gyro_Y,Gyro_Z,Gyro_X;		//ÍÓÂÝÒÇÁùÖá²ÎÊý
-float Balance_angle,Balance_gyro,Turn_gyro; //Æ½ºâÇã½Ç Æ½ºâÍÓÂÝÒÇ ×ªÏòÍÓÂÝÒÇ
+float Accel_Y,Accel_X,Accel_Z,Gyro_Y,Gyro_Z,Gyro_X;		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+float Balance_angle,Balance_gyro,Turn_gyro; //Æ½ï¿½ï¿½ï¿½ï¿½ï¿½ Æ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-float Balance_Kp=300,Balance_Kd=1.2,Velocity_Kp=80,Velocity_Ki=0.4;//PID²ÎÊý 
+float Balance_Kp=300,Balance_Kd=1.2,Velocity_Kp=80,Velocity_Ki=0.4;//PIDï¿½ï¿½ï¿½ï¿½ 
 
-u8 show;  //ÏÔÊ¾±êÖ¾
+u8 show;  //ï¿½ï¿½Ê¾ï¿½ï¿½Ö¾
 
 int main(void)
 {
@@ -34,7 +34,7 @@ int main(void)
 	HCSR04_Init(0XFFFF,72-1);
 	Encoder_Init(); 
 
-	//SERVO_Init(199,7199);  //20msµÄÂö³å  Ò»¸öÂö0.1  0.5-2.5   22-10
+	//SERVO_Init(199,7199);  //20msï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  Ò»ï¿½ï¿½ï¿½ï¿½0.1  0.5-2.5   22-10
 	while(1)
 	{
 		if(show == 10)
@@ -45,10 +45,10 @@ int main(void)
 	}
 }
 
-//ÖÐ¶Ïº¯Êý£¬¿ØÖÆ³ÌÐò
+//ï¿½Ð¶Ïºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½
 void EXTI9_5_IRQHandler(void)
 {
-  //È·±£ÊÇ·ñ²úÉúÁËEXTI LineÖÐ¶Ï
+  //È·ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½EXTI Lineï¿½Ð¶ï¿½
 	if(EXTI_GetITStatus(EXTI_LINE) != RESET) 
 	{
 		show++;
@@ -64,20 +64,20 @@ void EXTI9_5_IRQHandler(void)
 //	OLED_ShowChar(64,5,':',16,1);
 //	v = ADC_ConvertedValue*100/4096;
 //	//v = ADC_ConvertedValue;	
-//	OLED_ShowNum(72,5,MPU6050_getDeviceID(),3,16);//ÏÔÊ¾2¸öÊý×Ö		
+//	OLED_ShowNum(72,5,MPU6050_getDeviceID(),3,16);//ï¿½ï¿½Ê¾2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½		
 //	OLED_Refresh_Gram();
 
 
-//Gyro_Y=(I2C_ReadOneByte(devAddr,MPU6050_RA_GYRO_YOUT_H)<<8)+I2C_ReadOneByte(devAddr,MPU6050_RA_GYRO_YOUT_L);    //¶ÁÈ¡YÖáÍÓÂÝÒÇ
-//		Gyro_Z=(I2C_ReadOneByte(devAddr,MPU6050_RA_GYRO_ZOUT_H)<<8)+I2C_ReadOneByte(devAddr,MPU6050_RA_GYRO_ZOUT_L);    //¶ÁÈ¡ZÖáÍÓÂÝÒÇ
-//		Accel_X=(I2C_ReadOneByte(devAddr,MPU6050_RA_ACCEL_XOUT_H)<<8)+I2C_ReadOneByte(devAddr,MPU6050_RA_ACCEL_XOUT_L); //¶ÁÈ¡XÖá¼ÓËÙ¶È¼Æ
-//	  	Accel_Z=(I2C_ReadOneByte(devAddr,MPU6050_RA_ACCEL_ZOUT_H)<<8)+I2C_ReadOneByte(devAddr,MPU6050_RA_ACCEL_ZOUT_L); //¶ÁÈ¡ZÖá¼ÓËÙ¶È¼Æ
+//Gyro_Y=(I2C_ReadOneByte(devAddr,MPU6050_RA_GYRO_YOUT_H)<<8)+I2C_ReadOneByte(devAddr,MPU6050_RA_GYRO_YOUT_L);    //ï¿½ï¿½È¡Yï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//		Gyro_Z=(I2C_ReadOneByte(devAddr,MPU6050_RA_GYRO_ZOUT_H)<<8)+I2C_ReadOneByte(devAddr,MPU6050_RA_GYRO_ZOUT_L);    //ï¿½ï¿½È¡Zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//		Accel_X=(I2C_ReadOneByte(devAddr,MPU6050_RA_ACCEL_XOUT_H)<<8)+I2C_ReadOneByte(devAddr,MPU6050_RA_ACCEL_XOUT_L); //ï¿½ï¿½È¡Xï¿½ï¿½ï¿½ï¿½Ù¶È¼ï¿½
+//	  	Accel_Z=(I2C_ReadOneByte(devAddr,MPU6050_RA_ACCEL_ZOUT_H)<<8)+I2C_ReadOneByte(devAddr,MPU6050_RA_ACCEL_ZOUT_L); //ï¿½ï¿½È¡Zï¿½ï¿½ï¿½ï¿½Ù¶È¼ï¿½
 //		
 //		
-//		//Gyro_Balance=-Gyro_Y;                                  //¸üÐÂÆ½ºâ½ÇËÙ¶È
-//	   	Accel_Y=atan2(Accel_X,Accel_Z)*180/3.1415926f;                 //¼ÆËãÇã½Ç	
-//		Gyro_Y=Gyro_Y/16.4;                                    //ÍÓÂÝÒÇÁ¿³Ì×ª»»	
-//		Kalman_Filter(Accel_Y,-Gyro_Y);//¿¨¶ûÂüÂË²¨	
+//		//Gyro_Balance=-Gyro_Y;                                  //ï¿½ï¿½ï¿½ï¿½Æ½ï¿½ï¿½ï¿½ï¿½Ù¶ï¿½
+//	   	Accel_Y=atan2(Accel_X,Accel_Z)*180/3.1415926f;                 //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	
+//		Gyro_Y=Gyro_Y/16.4;                                    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½	
+//		Kalman_Filter(Accel_Y,-Gyro_Y);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë²ï¿½	
 //		
 //		//printf("Pitch:%.4f  Roll:%.4f  Yaw:%.4f  Temp:%d\n",Pitch,Roll,Yaw,Read_Temperature());
 //		

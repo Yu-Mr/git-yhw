@@ -1,7 +1,7 @@
 #include "hc_sr.h"
 
 u32 Distance;
-//¶æ»ú
+//ï¿½ï¿½ï¿½
 u8  ServoFlag = 0;
 
 HCSR_Value hc_sr04Val = {0,0,0,0};
@@ -33,54 +33,54 @@ void HCSR04_Init(u16 arr,u16 psc)
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;     
 	GPIO_Init(SIGNAL_GPIO_PORT, &GPIO_InitStructure);
 	
-	//³õÊ¼»¯¶¨Ê±Æ÷3 TIM3	 
-	TIM_TimeBaseStructure.TIM_Period = arr; //Éè¶¨¼ÆÊýÆ÷×Ô¶¯ÖØ×°Öµ 
-	TIM_TimeBaseStructure.TIM_Prescaler =psc; 	//Ô¤·ÖÆµÆ÷   
-	TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1; //ÉèÖÃÊ±ÖÓ·Ö¸î:TDTS = Tck_tim
-	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;  //TIMÏòÉÏ¼ÆÊýÄ£Ê½
-	TIM_TimeBaseInit(TIM3, &TIM_TimeBaseStructure); //¸ù¾ÝTIM_TimeBaseInitStructÖÐÖ¸¶¨µÄ²ÎÊý³õÊ¼»¯TIMxµÄÊ±¼ä»ùÊýµ¥Î»
+	//ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½3 TIM3	 
+	TIM_TimeBaseStructure.TIM_Period = arr; //ï¿½è¶¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½×°Öµ 
+	TIM_TimeBaseStructure.TIM_Prescaler =psc; 	//Ô¤ï¿½ï¿½Æµï¿½ï¿½   
+	TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1; //ï¿½ï¿½ï¿½ï¿½Ê±ï¿½Ó·Ö¸ï¿½:TDTS = Tck_tim
+	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;  //TIMï¿½ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½Ä£Ê½
+	TIM_TimeBaseInit(TIM3, &TIM_TimeBaseStructure); //ï¿½ï¿½ï¿½ï¿½TIM_TimeBaseInitStructï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½TIMxï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»
   
-	//³õÊ¼»¯TIM3ÊäÈë²¶»ñ²ÎÊý
+	//ï¿½ï¿½Ê¼ï¿½ï¿½TIM3ï¿½ï¿½ï¿½ë²¶ï¿½ï¿½ï¿½ï¿½ï¿½
 	TIM_ICInitStructure.TIM_Channel = TIM_Channel_3; 
-	TIM_ICInitStructure.TIM_ICPolarity = TIM_ICPolarity_Rising;	//ÉÏÉýÑØ²¶»ñ
+	TIM_ICInitStructure.TIM_ICPolarity = TIM_ICPolarity_Rising;	//ï¿½ï¿½ï¿½ï¿½ï¿½Ø²ï¿½ï¿½ï¿½
 	TIM_ICInitStructure.TIM_ICSelection = TIM_ICSelection_DirectTI;
-	TIM_ICInitStructure.TIM_ICPrescaler = TIM_ICPSC_DIV1;	 //ÅäÖÃÊäÈë·ÖÆµ,²»·ÖÆµ 
-	TIM_ICInitStructure.TIM_ICFilter = 0x00;//ÅäÖÃÊäÈëÂË²¨Æ÷ ²»ÂË²¨
+	TIM_ICInitStructure.TIM_ICPrescaler = TIM_ICPSC_DIV1;	 //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æµ,ï¿½ï¿½ï¿½ï¿½Æµ 
+	TIM_ICInitStructure.TIM_ICFilter = 0x00;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë²ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ë²ï¿½
 	TIM_ICInit(TIM3, &TIM_ICInitStructure);
 	
-	//¶æ»úPWMÊä³ö
+	//ï¿½ï¿½ï¿½PWMï¿½ï¿½ï¿½
 	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1; 
-	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable; //±È½ÏÊä³öÊ¹ÄÜ
-	TIM_OCInitStructure.TIM_Pulse = 0;                            //ÉèÖÃ´ý×°Èë²¶»ñ±È½Ï¼Ä´æÆ÷µÄÂö³åÖµ
-	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;     //Êä³ö¼«ÐÔ:TIMÊä³ö±È½Ï¼«ÐÔ 
+	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable; //ï¿½È½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½
+	TIM_OCInitStructure.TIM_Pulse = 0;                            //ï¿½ï¿½ï¿½Ã´ï¿½×°ï¿½ë²¶ï¿½ï¿½È½Ï¼Ä´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;     //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:TIMï¿½ï¿½ï¿½ï¿½È½Ï¼ï¿½ï¿½ï¿½ 
 	TIM_OC2Init(TIM3, &TIM_OCInitStructure);  
 	
-	//ÖÐ¶Ï·Ö×é³õÊ¼»¯
-	NVIC_InitStructure.NVIC_IRQChannel = TIM3_IRQn;  //TIM3ÖÐ¶Ï
+	//ï¿½Ð¶Ï·ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½
+	NVIC_InitStructure.NVIC_IRQChannel = TIM3_IRQn;  //TIM3ï¿½Ð¶ï¿½
 	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 2;  
 	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0;  
-	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE; //IRQÍ¨µÀ±»Ê¹ÄÜ
+	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE; //IRQÍ¨ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½
 	NVIC_Init(&NVIC_InitStructure); 
 	
-	TIM_ITConfig(TIM3,TIM_IT_Update|TIM_IT_CC3,ENABLE);//ÔÊÐí¸üÐÂÖÐ¶Ï ,ÔÊÐíCC3IE²¶»ñÖÐ¶Ï	
-	TIM_Cmd(TIM3,ENABLE ); 	//Ê¹ÄÜ¶¨Ê±Æ÷3
+	TIM_ITConfig(TIM3,TIM_IT_Update|TIM_IT_CC3,ENABLE);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ ,ï¿½ï¿½ï¿½ï¿½CC3IEï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½	
+	TIM_Cmd(TIM3,ENABLE ); 	//Ê¹ï¿½Ü¶ï¿½Ê±ï¿½ï¿½3
 }
 
 
-//³¬Éù²¨½ÓÊÕ»Ø²¨º¯Êý
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ»Ø²ï¿½ï¿½ï¿½ï¿½ï¿½
 void Read_Distane(void)
 {   
 	 PBout(1)=1;
 	 delay_us(15);  
 	 PBout(1)=0;	
-			if(hc_sr04Val.FinishFlag)//³É¹¦²¶»ñµ½ÁËÒ»´Î¸ßµçÆ½
+			if(hc_sr04Val.FinishFlag)//ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½Î¸ßµï¿½Æ½
 		{
 			Distance=hc_sr04Val.Period;
-			Distance*=65536;					        //Òç³öÊ±¼ä×ÜºÍ
-			Distance+=hc_sr04Val.Value;		//µÃµ½×ÜµÄ¸ßµçÆ½Ê±¼ä
+			Distance*=65536;					        //ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½Üºï¿½
+			Distance+=hc_sr04Val.Value;		//ï¿½Ãµï¿½ï¿½ÜµÄ¸ßµï¿½Æ½Ê±ï¿½ï¿½
 			Distance=Distance*170/1000;
 		//	printf("%d \r\n",Distance);
-			hc_sr04Val.FinishFlag =0;			//¿ªÆôÏÂÒ»´Î²¶»ñ
+			hc_sr04Val.FinishFlag =0;			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½Î²ï¿½ï¿½ï¿½
 		}				
 }
 
@@ -90,7 +90,7 @@ void TIM3_IRQHandler(void)
 	{
 		if ( TIM_GetITStatus( TIM3, TIM_IT_Update) != RESET )               
 		{	
-			//¶æ»ú¿ØÖÆ
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			if(ServoFlag++ == 0)
 				TIM_SetCompare2(TIM3,1000);
 			
@@ -102,9 +102,9 @@ void TIM3_IRQHandler(void)
 						
 			if(hc_sr04Val.StartFlag)
 			{
-				if((hc_sr04Val.Period&0X3F)==0X3F)//¸ßµçÆ½Ì«³¤
+				if((hc_sr04Val.Period&0X3F)==0X3F)//ï¿½ßµï¿½Æ½Ì«ï¿½ï¿½
 				{
-					hc_sr04Val.FinishFlag = 1;//±ê¼Ç³É¹¦²¶»ñÁËÒ»´Î
+					hc_sr04Val.FinishFlag = 1;//ï¿½ï¿½Ç³É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½
 					hc_sr04Val.Value=0XFFFF;
 				}
 				
@@ -114,7 +114,7 @@ void TIM3_IRQHandler(void)
 			}				
 		}
 
-		// ÉÏÉýÑØ²¶»ñÖÐ¶Ï
+		// ï¿½ï¿½ï¿½ï¿½ï¿½Ø²ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½
 		if ( TIM_GetITStatus (TIM3, TIM_IT_CC3 ) != RESET)
 		{
 			if ( hc_sr04Val.StartFlag == 0 )
@@ -122,11 +122,11 @@ void TIM3_IRQHandler(void)
 				TIM_SetCounter ( TIM3, 0 );
 				hc_sr04Val.Period = 0;		
 				hc_sr04Val.Value = 0;
-				// µ±µÚÒ»´Î²¶»ñµ½ÉÏÉýÑØÖ®ºó£¬°Ñ²¶»ñ±ßÑØÅäÖÃÎªÏÂ½µÑØ
+				// ï¿½ï¿½ï¿½ï¿½Ò»ï¿½Î²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ó£¬°Ñ²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½Â½ï¿½ï¿½ï¿½
 				TIM_OC3PolarityConfig(TIM3, TIM_ICPolarity_Falling);		
 				hc_sr04Val.StartFlag = 1;			
 			}
-			// ÏÂ½µÑØ²¶»ñÖÐ¶Ï
+			// ï¿½Â½ï¿½ï¿½Ø²ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½
 			else 
 			{
 				hc_sr04Val.Value = TIM_GetCapture3 (TIM3);
@@ -139,7 +139,7 @@ void TIM3_IRQHandler(void)
 		}
 	}
 
-	TIM_ClearITPendingBit ( TIM3, TIM_FLAG_Update );//Çå³ýÖÐ¶Ï±êÖ¾Î» 	
+	TIM_ClearITPendingBit ( TIM3, TIM_FLAG_Update );//ï¿½ï¿½ï¿½ï¿½Ð¶Ï±ï¿½Ö¾Î» 	
 	TIM_ClearITPendingBit (TIM3,TIM_IT_CC3);
 }
 

@@ -5,7 +5,7 @@
 #include "stm32f10x.h"
 
 
-#define INT PBin(5)   //PB5Á¬½Óµ½MPU6050µÄÖÐ¶ÏÒý½Å
+#define INT PBin(5)   //PB5ï¿½ï¿½ï¿½Óµï¿½MPU6050ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½ï¿½
 
 #define EXTI_GPIO_PORT         GPIOB
 #define EXTI_GPIO_PIN          GPIO_Pin_5
@@ -19,7 +19,7 @@
 
 
 void EXTI_Config(void);
-void  Control_EXTI_Init(void);	//Íâ²¿ÖÐ¶Ï³õÊ¼»¯		 					    
+void  Control_EXTI_Init(void);	//ï¿½â²¿ï¿½Ð¶Ï³ï¿½Ê¼ï¿½ï¿½		 					    
 #endif
 
 

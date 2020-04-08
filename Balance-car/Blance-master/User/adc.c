@@ -23,10 +23,10 @@ static void ADCx_Mode_Init(void)
 	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_DMA1, ENABLE);
 	ADC_APBxClock_FUN ( ADC_CLK, ENABLE );
 	
-	// ¸´Î»DMA¿ØÖÆÆ÷
+	// ï¿½ï¿½Î»DMAï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	DMA_DeInit(ADC_DMA_CHANNEL);	
-	// ÅäÖÃ DMA ³õÊ¼»¯½á¹¹Ìå
-	// ÍâÉè»ùÖ·Îª£ºADC Êý¾Ý¼Ä´æÆ÷µØÖ·
+	// ï¿½ï¿½ï¿½ï¿½ DMA ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½á¹¹ï¿½ï¿½
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Ö·Îªï¿½ï¿½ADC ï¿½ï¿½ï¿½Ý¼Ä´ï¿½ï¿½ï¿½ï¿½ï¿½Ö·
 	DMA_InitStructure.DMA_PeripheralBaseAddr = ( uint32_t ) ( & ( ADCx->DR ) );
 	DMA_InitStructure.DMA_MemoryBaseAddr = (uint32_t)&ADC_ConvertedValue;
 	DMA_InitStructure.DMA_DIR = DMA_DIR_PeripheralSRC;
@@ -41,8 +41,8 @@ static void ADCx_Mode_Init(void)
 	DMA_Init(ADC_DMA_CHANNEL, &DMA_InitStructure);
 	DMA_Cmd(ADC_DMA_CHANNEL , ENABLE);
 	
-	// ADC Ä£Ê½ÅäÖÃ
-	// Ö»Ê¹ÓÃÒ»¸öADC£¬ÊôÓÚµ¥Ä£Ê½
+	// ADC Ä£Ê½ï¿½ï¿½ï¿½ï¿½
+	// Ö»Ê¹ï¿½ï¿½Ò»ï¿½ï¿½ADCï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½Ä£Ê½
 	ADC_InitStructure.ADC_Mode = ADC_Mode_Independent;
 	ADC_InitStructure.ADC_ScanConvMode = DISABLE ; 
 	ADC_InitStructure.ADC_ContinuousConvMode = ENABLE;
@@ -59,12 +59,12 @@ static void ADCx_Mode_Init(void)
 
 	ADC_Cmd(ADCx, ENABLE);
 	
-	ADC_ResetCalibration(ADCx);	// ³õÊ¼»¯ADC Ð£×¼¼Ä´æÆ÷  
+	ADC_ResetCalibration(ADCx);	// ï¿½ï¿½Ê¼ï¿½ï¿½ADC Ð£×¼ï¿½Ä´ï¿½ï¿½ï¿½  
 	
-	while(ADC_GetResetCalibrationStatus(ADCx));	// µÈ´ýÐ£×¼¼Ä´æÆ÷³õÊ¼»¯Íê³É
+	while(ADC_GetResetCalibrationStatus(ADCx));	// ï¿½È´ï¿½Ð£×¼ï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½
 	
 	
-	ADC_StartCalibration(ADCx);		// ADC¿ªÊ¼Ð£×¼
+	ADC_StartCalibration(ADCx);		// ADCï¿½ï¿½Ê¼Ð£×¼
 	
 	while(ADC_GetCalibrationStatus(ADCx));
 	

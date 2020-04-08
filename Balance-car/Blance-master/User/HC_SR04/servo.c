@@ -1,9 +1,9 @@
 #include "servo.h"
 #include "stm32f10x.h"
 /**************************************************************************
-º¯Êý¹¦ÄÜ£º¶¨Ê±Æ÷2Í¨µÀ3PWMÊä³ö
-Èë¿Ú²ÎÊý£ºÈë¿Ú²ÎÊý£ºarr£º×Ô¶¯ÖØ×°Öµ  psc£ºÊ±ÖÓÔ¤·ÖÆµÊý  PWM_Init(199,7199)
-·µ»Ø  Öµ£ºÎÞ
+ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü£ï¿½ï¿½ï¿½Ê±ï¿½ï¿½2Í¨ï¿½ï¿½3PWMï¿½ï¿½ï¿½
+ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½arrï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½×°Öµ  pscï¿½ï¿½Ê±ï¿½ï¿½Ô¤ï¿½ï¿½Æµï¿½ï¿½  PWM_Init(199,7199)
+ï¿½ï¿½ï¿½ï¿½  Öµï¿½ï¿½ï¿½ï¿½
 **************************************************************************/
 
 void SERVO_Init(u16 arr,u16 psc)	
@@ -24,32 +24,32 @@ void SERVO_Init(u16 arr,u16 psc)
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;     
 	GPIO_Init(SIGNAL_GPIO_PORT, &GPIO_InitStructure);
 	
-	//³õÊ¼»¯¶¨Ê±Æ÷2 TIM2	 
-	TIM_TimeBaseStructure.TIM_Period = arr; //Éè¶¨¼ÆÊýÆ÷×Ô¶¯ÖØ×°Öµ 
-	TIM_TimeBaseStructure.TIM_Prescaler =psc; 	//Ô¤·ÖÆµÆ÷   
-	TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1; //ÉèÖÃÊ±ÖÓ·Ö¸î:TDTS = Tck_tim
-	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;  //TIMÏòÉÏ¼ÆÊýÄ£Ê½
-	TIM_TimeBaseInit(TIM2, &TIM_TimeBaseStructure); //¸ù¾ÝTIM_TimeBaseInitStructÖÐÖ¸¶¨µÄ²ÎÊý³õÊ¼»¯TIMxµÄÊ±¼ä»ùÊýµ¥Î»
+	//ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½2 TIM2	 
+	TIM_TimeBaseStructure.TIM_Period = arr; //ï¿½è¶¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½×°Öµ 
+	TIM_TimeBaseStructure.TIM_Prescaler =psc; 	//Ô¤ï¿½ï¿½Æµï¿½ï¿½   
+	TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1; //ï¿½ï¿½ï¿½ï¿½Ê±ï¿½Ó·Ö¸ï¿½:TDTS = Tck_tim
+	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;  //TIMï¿½ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½Ä£Ê½
+	TIM_TimeBaseInit(TIM2, &TIM_TimeBaseStructure); //ï¿½ï¿½ï¿½ï¿½TIM_TimeBaseInitStructï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½TIMxï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»
  
 	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1; 
-	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable; //±È½ÏÊä³öÊ¹ÄÜ
-	TIM_OCInitStructure.TIM_Pulse = 0;                            //ÉèÖÃ´ý×°Èë²¶»ñ±È½Ï¼Ä´æÆ÷µÄÂö³åÖµ
-	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;     //Êä³ö¼«ÐÔ:TIMÊä³ö±È½Ï¼«ÐÔ 
+	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable; //ï¿½È½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½
+	TIM_OCInitStructure.TIM_Pulse = 0;                            //ï¿½ï¿½ï¿½Ã´ï¿½×°ï¿½ë²¶ï¿½ï¿½È½Ï¼Ä´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;     //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:TIMï¿½ï¿½ï¿½ï¿½È½Ï¼ï¿½ï¿½ï¿½ 
 	TIM_OC3Init(TIM2, &TIM_OCInitStructure);  
-	TIM_Cmd(TIM2,ENABLE ); 	//Ê¹ÄÜ¶¨Ê±Æ÷3
+	TIM_Cmd(TIM2,ENABLE ); 	//Ê¹ï¿½Ü¶ï¿½Ê±ï¿½ï¿½3
 	
-//	//³õÊ¼»¯¶¨Ê±Æ÷2 TIM2	 
-//	TIM_TimeBaseStructure.TIM_Period = 5000; //Éè¶¨¼ÆÊýÆ÷×Ô¶¯ÖØ×°Öµ 
-//	TIM_TimeBaseStructure.TIM_Prescaler =7200-1; 	//Ô¤·ÖÆµÆ÷   
-//	TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1; //ÉèÖÃÊ±ÖÓ·Ö¸î:TDTS = Tck_tim
-//	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;  //TIMÏòÉÏ¼ÆÊýÄ£Ê½
-//	TIM_TimeBaseInit(TIM6, &TIM_TimeBaseStructure); //¸ù¾ÝTIM_TimeBaseInitStructÖÐÖ¸¶¨µÄ²ÎÊý³õÊ¼»¯TIMxµÄÊ±¼ä»ùÊýµ¥Î»
-//	//ÖÐ¶Ï·Ö×é³õÊ¼»¯
-//	NVIC_InitStructure.NVIC_IRQChannel = TIM6_IRQn;  //TIM6ÖÐ¶Ï
+//	//ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½2 TIM2	 
+//	TIM_TimeBaseStructure.TIM_Period = 5000; //ï¿½è¶¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½×°Öµ 
+//	TIM_TimeBaseStructure.TIM_Prescaler =7200-1; 	//Ô¤ï¿½ï¿½Æµï¿½ï¿½   
+//	TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1; //ï¿½ï¿½ï¿½ï¿½Ê±ï¿½Ó·Ö¸ï¿½:TDTS = Tck_tim
+//	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;  //TIMï¿½ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½Ä£Ê½
+//	TIM_TimeBaseInit(TIM6, &TIM_TimeBaseStructure); //ï¿½ï¿½ï¿½ï¿½TIM_TimeBaseInitStructï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½TIMxï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»
+//	//ï¿½Ð¶Ï·ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½
+//	NVIC_InitStructure.NVIC_IRQChannel = TIM6_IRQn;  //TIM6ï¿½Ð¶ï¿½
 //	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 2;  
 //	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 1;  
-//	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE; //IRQÍ¨µÀ±»Ê¹ÄÜ
+//	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE; //IRQÍ¨ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½
 //	NVIC_Init(&NVIC_InitStructure); 
-//	TIM_ITConfig(TIM6,TIM_IT_Update,ENABLE);//ÔÊÐí¸üÐÂÖÐ¶Ï ,ÔÊÐíCC3IE²¶»ñÖÐ¶Ï	
-//	TIM_Cmd(TIM6,ENABLE ); 	//Ê¹ÄÜ¶¨Ê±Æ÷3
+//	TIM_ITConfig(TIM6,TIM_IT_Update,ENABLE);//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ ,ï¿½ï¿½ï¿½ï¿½CC3IEï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½	
+//	TIM_Cmd(TIM6,ENABLE ); 	//Ê¹ï¿½Ü¶ï¿½Ê±ï¿½ï¿½3
 }

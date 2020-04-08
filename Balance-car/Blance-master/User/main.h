@@ -24,16 +24,16 @@ extern u16 ADC_ConvertedValue;
 extern u32 Distance;
 extern u16 voltage;
 
-extern u8 Flag_forward,Flag_back,Flag_left,Flag_right,Flag_speed;  	//À¶ÑÀÒ£¿ØÏà¹ØµÄ±äÁ¿
-extern u8 Flag_stop,Flag_show;								//Í£Ö¹±êÖ¾Î»ºÍ ÏÔÊ¾±êÖ¾Î» Ä¬ÈÏÍ£Ö¹ ÏÔÊ¾´ò¿ª
+extern u8 Flag_forward,Flag_back,Flag_left,Flag_right,Flag_speed;  	//ï¿½ï¿½ï¿½ï¿½Ò£ï¿½ï¿½ï¿½ï¿½ØµÄ±ï¿½ï¿½ï¿½
+extern u8 Flag_stop,Flag_show;								//Í£Ö¹ï¿½ï¿½Ö¾Î»ï¿½ï¿½ ï¿½ï¿½Ê¾ï¿½ï¿½Ö¾Î» Ä¬ï¿½ï¿½Í£Ö¹ ï¿½ï¿½Ê¾ï¿½ï¿½
 
-extern int nEncoder_left,nEncoder_right;						//×óÓÒ±àÂëÆ÷µÄÂö³å¼ÆÊý
-extern int Motor_pwm1,Motor_pwm2;								//µç»úPWM±ä
+extern int nEncoder_left,nEncoder_right;						//ï¿½ï¿½ï¿½Ò±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+extern int Motor_pwm1,Motor_pwm2;								//ï¿½ï¿½ï¿½PWMï¿½ï¿½
 
-extern float Accel_Y,Accel_X,Accel_Z,Gyro_Y,Gyro_Z,Gyro_X;				//ÍÓÂÝÒÇÁùÖá²ÎÊý
-extern float Balance_angle,Balance_gyro,Turn_gyro;				//Æ½ºâÇã½Ç Æ½ºâÍÓÂÝÒÇ ×ªÏòÍÓÂÝÒÇ
+extern float Accel_Y,Accel_X,Accel_Z,Gyro_Y,Gyro_Z,Gyro_X;				//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+extern float Balance_angle,Balance_gyro,Turn_gyro;				//Æ½ï¿½ï¿½ï¿½ï¿½ï¿½ Æ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ×ªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-extern float Balance_Kp,Balance_Kd,Velocity_Kp,Velocity_Ki;			//PID²ÎÊý
+extern float Balance_Kp,Balance_Kd,Velocity_Kp,Velocity_Ki;			//PIDï¿½ï¿½ï¿½ï¿½
 
 
 #endif

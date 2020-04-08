@@ -5,46 +5,46 @@ u8 flag;
 
 
 
-//»ñµÃ½Ç¶È
+//ï¿½ï¿½Ã½Ç¶ï¿½
 static void Get_Angle(void)
 { 
 	
-	//¶ÁÈ¡XÖáÍÓÂÝÒÇ
+	//ï¿½ï¿½È¡Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	ReadGyro_X(&Gyro_X);
-	//¶ÁÈ¡YÖáÍÓÂÝÒÇ
+	//ï¿½ï¿½È¡Yï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	ReadGyro_Y(&Gyro_Y);
-	//¶ÁÈ¡ZÖáÍÓÂÝÒÇ
+	//ï¿½ï¿½È¡Zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	ReadGyro_Z(&Gyro_Z);
-	//¶ÁÈ¡YÖá¼ÓËÙ¶È¼Æ
+	//ï¿½ï¿½È¡Yï¿½ï¿½ï¿½ï¿½Ù¶È¼ï¿½
 	ReadAccel_Y(&Accel_Y);	
-	//¶ÁÈ¡XÖá¼ÓËÙ¶È¼Æ
+	//ï¿½ï¿½È¡Xï¿½ï¿½ï¿½ï¿½Ù¶È¼ï¿½
 	ReadAccel_X(&Accel_X);
-	//¶ÁÈ¡ZÖá¼ÓËÙ¶È¼Æ
+	//ï¿½ï¿½È¡Zï¿½ï¿½ï¿½ï¿½Ù¶È¼ï¿½
 	ReadAccel_Z(&Accel_Z);
 	
 	
 #if 1	
-	Balance_gyro=Gyro_X;                                  //¸üÐÂÆ½ºâ½ÇËÙ¶È
-	Accel_X=atan2(Accel_Y,Accel_Z)*180/PI;                 //¼ÆËãÇã½Ç	
-	Gyro_X=Gyro_X/16.4;                                    //ÍÓÂÝÒÇÁ¿³Ì×ª»»
+	Balance_gyro=Gyro_X;                                  //ï¿½ï¿½ï¿½ï¿½Æ½ï¿½ï¿½ï¿½ï¿½Ù¶ï¿½
+	Accel_X=atan2(Accel_Y,Accel_Z)*180/PI;                 //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	
+	Gyro_X=Gyro_X/16.4;                                    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½
 	
-	Kalman_Filter(Accel_X,Gyro_X);					//¿¨¶ûÂüÂË²¨	
+	Kalman_Filter(Accel_X,Gyro_X);					//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë²ï¿½	
 	
 #else
-	Balance_gyro=-Gyro_Y;                                  //¸üÐÂÆ½ºâ½ÇËÙ¶È
-	Accel_Y=atan2(Accel_X,Accel_Z)*180/PI;                 //¼ÆËãÇã½Ç	
-	Gyro_Y=Gyro_Y/16.4;                                    //ÍÓÂÝÒÇÁ¿³Ì×ª»»
+	Balance_gyro=-Gyro_Y;                                  //ï¿½ï¿½ï¿½ï¿½Æ½ï¿½ï¿½ï¿½ï¿½Ù¶ï¿½
+	Accel_Y=atan2(Accel_X,Accel_Z)*180/PI;                 //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	
+	Gyro_Y=Gyro_Y/16.4;                                    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½
 	
-	Kalman_Filter(Accel_Y,-Gyro_Y);					//¿¨¶ûÂüÂË²¨	
+	Kalman_Filter(Accel_Y,-Gyro_Y);					//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë²ï¿½	
 
 #endif
-	//Balance_angle=angle;                                   //¸üÐÂÆ½ºâÇã½Ç
+	//Balance_angle=angle;                                   //ï¿½ï¿½ï¿½ï¿½Æ½ï¿½ï¿½ï¿½ï¿½ï¿½
 	Balance_angle=_angle; 
-	Turn_gyro=Gyro_Z;                                      //¸üÐÂ×ªÏò½ÇËÙ¶È
+	Turn_gyro=Gyro_Z;                                      //ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½ï¿½ï¿½Ù¶ï¿½
 
 }
 
-//¸³Öµ¸øPWM¼Ä´æÆ÷
+//ï¿½ï¿½Öµï¿½ï¿½PWMï¿½Ä´ï¿½ï¿½ï¿½
 static void Set_Pwm(void)
 {
 	int DeadBand=400;
@@ -72,11 +72,11 @@ static void Set_Pwm(void)
 	PWMB = m_abs(Motor_pwm2)+ DeadBand;	
 }
 
-//Òì³£¹Ø±Õµç»ú
+//ï¿½ì³£ï¿½Ø±Õµï¿½ï¿½
 static u8 EmergencyStop(float angle, int voltage)
 {
 	u8 temp;
-	//µç³ØµçÑ¹¹ýµÍ¡¢Çã½Ç´óÓÚ40¶È¹Ø±Õµç»ú
+	//ï¿½ï¿½Øµï¿½Ñ¹ï¿½ï¿½ï¿½Í¡ï¿½ï¿½ï¿½Ç´ï¿½ï¿½ï¿½40ï¿½È¹Ø±Õµï¿½ï¿½
 	if(angle<-30||angle>30||Flag_stop==1||voltage<1)
 	{	                                                 
 		temp = 1;                                           
@@ -90,18 +90,18 @@ static u8 EmergencyStop(float angle, int voltage)
 	return temp;			
 }
 
-//Ö±Á¢»· PD¿ØÖÆ
+//Ö±ï¿½ï¿½ï¿½ï¿½ PDï¿½ï¿½ï¿½ï¿½
 static int balance(void)
 {  
 	float Bias;
 	int balance;
-	Bias=Balance_angle-ZHONGZHI;       //Çó³öÆ½ºâµÄ½Ç¶ÈÖÐÖµ
-	balance=Balance_Kp*Bias+Balance_gyro*Balance_Kd;   //¼ÆËãÆ½ºâ¿ØÖÆµÄµç»úPWM  PD¿ØÖÆ
+	Bias=Balance_angle-ZHONGZHI;       //ï¿½ï¿½ï¿½Æ½ï¿½ï¿½Ä½Ç¶ï¿½ï¿½ï¿½Öµ
+	balance=Balance_Kp*Bias+Balance_gyro*Balance_Kd;   //ï¿½ï¿½ï¿½ï¿½Æ½ï¿½ï¿½ï¿½ï¿½ÆµÄµï¿½ï¿½PWM  PDï¿½ï¿½ï¿½ï¿½
 	return balance;
 }
 
 
-//ËÙ¶È»· PI¿ØÖÆ Ò£¿ØÇ°½øºóÍË  Target_VelocityÎªÐ¡³µËÙ¶È
+//ï¿½Ù¶È»ï¿½ PIï¿½ï¿½ï¿½ï¿½ Ò£ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  Target_VelocityÎªÐ¡ï¿½ï¿½ï¿½Ù¶ï¿½
 static int velocity(void)
 {  
 	static float Velocity,EncoderBias,Encoder,Movement,Encoder_Integral;
@@ -112,7 +112,7 @@ static int velocity(void)
 	else
 		Target_Velocity = 40;
 	
-	//½ÓÊÕÒ£¿ØÆ÷Êý¾Ý£¬¿ØÖÆÇ°½øºóÍË
+	//ï¿½ï¿½ï¿½ï¿½Ò£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if(Flag_forward)
 		Movement=-Target_Velocity;	     
 	else if(Flag_back)
@@ -120,16 +120,16 @@ static int velocity(void)
 	else
 		Movement=0;	
 	
-	//ËÙ¶ÈPI¿ØÖÆÆ÷	
-	EncoderBias =(nEncoder_left+nEncoder_right)-0;	//»ñÈ¡×îÐÂËÙ¶ÈÆ«²î ²âÁ¿ËÙ¶È-Ä¿±êËÙ¶È
-	//Ò»½×µÍÍ¨ÂË²¨Æ÷
+	//ï¿½Ù¶ï¿½PIï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	
+	EncoderBias =(nEncoder_left+nEncoder_right)-0;	//ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Ù¶ï¿½Æ«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ù¶ï¿½-Ä¿ï¿½ï¿½ï¿½Ù¶ï¿½
+	//Ò»ï¿½×µï¿½Í¨ï¿½Ë²ï¿½ï¿½ï¿½
 	Encoder *= 0.7;		                                                       
 	Encoder += EncoderBias*0.3;
 	
-	Encoder_Integral +=Encoder; 					//»ý·Ö³öÎ»ÒÆ »ý·ÖÊ±¼ä£º10ms
+	Encoder_Integral +=Encoder; 					//ï¿½ï¿½ï¿½Ö³ï¿½Î»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ä£º10ms
 	Encoder_Integral=Encoder_Integral-Movement; 		
 	
-	//»ý·ÖÏÞ·ù
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Þ·ï¿½
 	if(Encoder_Integral>15000)
 		Encoder_Integral=15000;             
 	if(Encoder_Integral<-15000)
@@ -137,14 +137,14 @@ static int velocity(void)
 	
 	Velocity=Encoder*Velocity_Kp+Encoder_Integral*Velocity_Ki;
 	
-	//µç»ú¹Ø±ÕºóÇå³ý»ý·Ö
+	//ï¿½ï¿½ï¿½ï¿½Ø±Õºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if(EmergencyStop(Balance_angle,voltage))
 		Encoder_Integral=0;
 	
 	return Velocity;
 }
 
-//×ªÏò»·
+//×ªï¿½ï¿½
 static int turn()
 {
 	static float Turn_Target,Kp=30;
@@ -152,7 +152,7 @@ static int turn()
 	u8 Turn_Amplitude=25; 
 	
 
-	 //½ÓÊÕ×ªÏòÒ£¿ØÊý¾Ý
+	 //ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½Ò£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if(Flag_left)
 		Turn_Target -= Turn_Convert;       
 	else if(Flag_right)
@@ -160,19 +160,19 @@ static int turn()
 	else
 		Turn_Target = 0,Kd = 1;      
 	
-	//×ªÏòËÙ¶ÈÏÞ·ù
+	//×ªï¿½ï¿½ï¿½Ù¶ï¿½ï¿½Þ·ï¿½
 	if(Turn_Target>Turn_Amplitude)
 		Turn_Target = Turn_Amplitude;    
 	if(Turn_Target<-Turn_Amplitude)
 		Turn_Target = -Turn_Amplitude;  
                                   
   
-	Turn = Turn_Target*Kp+Turn_gyro*Kd;	//½áºÏZÖáÍÓÂÝÒÇ½øÐÐPD¿ØÖÆ
+	Turn = Turn_Target*Kp+Turn_gyro*Kd;	//ï¿½ï¿½ï¿½Zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç½ï¿½ï¿½ï¿½PDï¿½ï¿½ï¿½ï¿½
 	return Turn;
 }
 
 
-//ÏÞÖÆPWM¸³Öµ 
+//ï¿½ï¿½ï¿½ï¿½PWMï¿½ï¿½Öµ 
 static void PWM_limit(void)
 {	
 	int Amplitude=6800;    
@@ -203,7 +203,7 @@ void Balance_control(void)
 	if(flag == 0)
 	{	
 		Get_Angle();
-		//¶ÁÈ¡µçÑ¹£¬Çó¶à´ÎÆ½¾ùÖµ
+		//ï¿½ï¿½È¡ï¿½ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ½ï¿½ï¿½Öµ
 		Get_Voltage();
 		v_count++;
 		v_sum += voltage;
@@ -234,7 +234,7 @@ void Balance_control(void)
 		Set_Pwm();
 }
 
-//¾ø¶ÔÖµ
+//ï¿½ï¿½ï¿½ï¿½Öµ
 int m_abs(int a)
 { 		   
 	  int temp;

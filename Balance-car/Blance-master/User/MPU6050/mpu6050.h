@@ -10,7 +10,7 @@
 #include "dmpmap.h"
 #include <math.h>
 
-#define devAddr  (0x68<<1)      //MPU6050Æ÷¼þ¶ÁµØÖ·
+#define devAddr  (0x68<<1)      //MPU6050ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·
 
 #define MPU6050_ADDRESS_AD0_LOW     0x68 // address pin low (GND), default for InvenSense evaluation board
 #define MPU6050_ADDRESS_AD0_HIGH    0x69 // address pin high (VCC)
@@ -369,10 +369,10 @@ extern float Acc1G_Values;
 extern float Pitch,Roll,Yaw;
 
 
-void MPU6050_Init(void); //³õÊ¼»¯
-uint8_t MPU6050_testConnection(void); //¼ì²âMPU6050ÊÇ·ñ´æÔÚ
+void MPU6050_Init(void); //ï¿½ï¿½Ê¼ï¿½ï¿½
+uint8_t MPU6050_testConnection(void); //ï¿½ï¿½ï¿½MPU6050ï¿½Ç·ï¿½ï¿½ï¿½ï¿½
 
-//¶ÁÈ¡ÖµÔ­Ê¼Êý¾Ý
+//ï¿½ï¿½È¡ÖµÔ­Ê¼ï¿½ï¿½ï¿½ï¿½
 void ReadGyro_Y(float *Y);
 void ReadGyro_Z(float *Z);
 void ReadGyro_X(float *X);
@@ -380,8 +380,8 @@ void ReadAccel_Z(float *Z);
 void ReadAccel_X(float *X);
 void ReadAccel_Y(float *Y);
 
-uint8_t MPU6050_getDeviceID(void); //¶ÁÈ¡MPU6050µÄID
-void MPU6050_InitGyro_Offset(void);//³õÊ¼»¯ÍÓÂÝÒÇÆ«ÖÃ
+uint8_t MPU6050_getDeviceID(void); //ï¿½ï¿½È¡MPU6050ï¿½ï¿½ID
+void MPU6050_InitGyro_Offset(void);//ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ«ï¿½ï¿½
 void DMP_Init(void);
 void Read_DMP(void);
 int Read_Temperature(void);

@@ -72,9 +72,9 @@ static unsigned short inv_orientation_matrix_to_scalar(const signed char *mtx)
 uint8_t buffer[14];
 
 
-/**************************ÊµÏÖº¯Êý********************************************
-*º¯ÊýÔ­ÐÍ:		void MPU6050_setClockSource(uint8_t source)
-*¹¦¡¡¡¡ÄÜ:	    ÉèÖÃ  MPU6050 µÄÊ±ÖÓÔ´
+/**************************Êµï¿½Öºï¿½ï¿½ï¿½********************************************
+*ï¿½ï¿½ï¿½ï¿½Ô­ï¿½ï¿½:		void MPU6050_setClockSource(uint8_t source)
+*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:	    ï¿½ï¿½ï¿½ï¿½  MPU6050 ï¿½ï¿½Ê±ï¿½ï¿½Ô´
  * CLK_SEL | Clock Source
  * --------+--------------------------------------
  * 0       | Internal oscillator
@@ -103,27 +103,27 @@ void MPU6050_setFullScaleGyroRange(uint8_t range) {
     IICwriteBits(devAddr, MPU6050_RA_GYRO_CONFIG, MPU6050_GCONFIG_FS_SEL_BIT, MPU6050_GCONFIG_FS_SEL_LENGTH, range);
 }
 
-/**************************ÊµÏÖº¯Êý********************************************
-*º¯ÊýÔ­ÐÍ:		void MPU6050_setFullScaleAccelRange(uint8_t range)
-*¹¦¡¡¡¡ÄÜ:	    ÉèÖÃ  MPU6050 ¼ÓËÙ¶È¼ÆµÄ×î´óÁ¿³Ì
+/**************************Êµï¿½Öºï¿½ï¿½ï¿½********************************************
+*ï¿½ï¿½ï¿½ï¿½Ô­ï¿½ï¿½:		void MPU6050_setFullScaleAccelRange(uint8_t range)
+*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:	    ï¿½ï¿½ï¿½ï¿½  MPU6050 ï¿½ï¿½ï¿½Ù¶È¼Æµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 *******************************************************************************/
 void MPU6050_setFullScaleAccelRange(uint8_t range) {
     IICwriteBits(devAddr, MPU6050_RA_ACCEL_CONFIG, MPU6050_ACONFIG_AFS_SEL_BIT, MPU6050_ACONFIG_AFS_SEL_LENGTH, range);
 }
 
-/**************************ÊµÏÖº¯Êý********************************************
-*º¯ÊýÔ­ÐÍ:		void MPU6050_setSleepEnabled(uint8_t enabled)
-*¹¦¡¡¡¡ÄÜ:	    ÉèÖÃ  MPU6050 ÊÇ·ñ½øÈëË¯ÃßÄ£Ê½
-				enabled =1   Ë¯¾õ
-			    enabled =0   ¹¤×÷
+/**************************Êµï¿½Öºï¿½ï¿½ï¿½********************************************
+*ï¿½ï¿½ï¿½ï¿½Ô­ï¿½ï¿½:		void MPU6050_setSleepEnabled(uint8_t enabled)
+*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:	    ï¿½ï¿½ï¿½ï¿½  MPU6050 ï¿½Ç·ï¿½ï¿½ï¿½ï¿½Ë¯ï¿½ï¿½Ä£Ê½
+				enabled =1   Ë¯ï¿½ï¿½
+			    enabled =0   ï¿½ï¿½ï¿½ï¿½
 *******************************************************************************/
 void MPU6050_setSleepEnabled(uint8_t enabled) {
     IICwriteBit(devAddr, MPU6050_RA_PWR_MGMT_1, MPU6050_PWR1_SLEEP_BIT, enabled);
 }
 
-/**************************ÊµÏÖº¯Êý********************************************
-*º¯ÊýÔ­ÐÍ:		uint8_t MPU6050_getDeviceID(void)
-*¹¦¡¡¡¡ÄÜ:	    ¶ÁÈ¡  MPU6050 WHO_AM_I ±êÊ¶	 ½«·µ»Ø 0x68
+/**************************Êµï¿½Öºï¿½ï¿½ï¿½********************************************
+*ï¿½ï¿½ï¿½ï¿½Ô­ï¿½ï¿½:		uint8_t MPU6050_getDeviceID(void)
+*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:	    ï¿½ï¿½È¡  MPU6050 WHO_AM_I ï¿½ï¿½Ê¶	 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 0x68
 *******************************************************************************/
 uint8_t MPU6050_getDeviceID(void) {
 
@@ -131,9 +131,9 @@ uint8_t MPU6050_getDeviceID(void) {
     return buffer[0];
 }
 
-/**************************ÊµÏÖº¯Êý********************************************
-*º¯ÊýÔ­ÐÍ:		uint8_t MPU6050_testConnection(void)
-*¹¦¡¡¡¡ÄÜ:	    ¼ì²âMPU6050 ÊÇ·ñÒÑ¾­Á¬½Ó
+/**************************Êµï¿½Öºï¿½ï¿½ï¿½********************************************
+*ï¿½ï¿½ï¿½ï¿½Ô­ï¿½ï¿½:		uint8_t MPU6050_testConnection(void)
+*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:	    ï¿½ï¿½ï¿½MPU6050 ï¿½Ç·ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½
 *******************************************************************************/
 uint8_t MPU6050_testConnection(void) {
    if(MPU6050_getDeviceID() == 0x68)  //0b01101000;
@@ -141,17 +141,17 @@ uint8_t MPU6050_testConnection(void) {
    	else return 0;
 }
 
-/**************************ÊµÏÖº¯Êý********************************************
-*º¯ÊýÔ­ÐÍ:		void MPU6050_setI2CMasterModeEnabled(uint8_t enabled)
-*¹¦¡¡¡¡ÄÜ:	    ÉèÖÃ MPU6050 ÊÇ·ñÎªAUX I2CÏßµÄÖ÷»ú
+/**************************Êµï¿½Öºï¿½ï¿½ï¿½********************************************
+*ï¿½ï¿½ï¿½ï¿½Ô­ï¿½ï¿½:		void MPU6050_setI2CMasterModeEnabled(uint8_t enabled)
+*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:	    ï¿½ï¿½ï¿½ï¿½ MPU6050 ï¿½Ç·ï¿½ÎªAUX I2Cï¿½ßµï¿½ï¿½ï¿½ï¿½ï¿½
 *******************************************************************************/
 void MPU6050_setI2CMasterModeEnabled(uint8_t enabled) {
     IICwriteBit(devAddr, MPU6050_RA_USER_CTRL, MPU6050_USERCTRL_I2C_MST_EN_BIT, enabled);
 }
 
-/**************************ÊµÏÖº¯Êý********************************************
-*º¯ÊýÔ­ÐÍ:		void MPU6050_setI2CBypassEnabled(uint8_t enabled)
-*¹¦¡¡¡¡ÄÜ:	    ÉèÖÃ MPU6050 ÊÇ·ñÎªAUX I2CÏßµÄÖ÷»ú
+/**************************Êµï¿½Öºï¿½ï¿½ï¿½********************************************
+*ï¿½ï¿½ï¿½ï¿½Ô­ï¿½ï¿½:		void MPU6050_setI2CBypassEnabled(uint8_t enabled)
+*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:	    ï¿½ï¿½ï¿½ï¿½ MPU6050 ï¿½Ç·ï¿½ÎªAUX I2Cï¿½ßµï¿½ï¿½ï¿½ï¿½ï¿½
 *******************************************************************************/
 void MPU6050_setI2CBypassEnabled(uint8_t enabled) {
     IICwriteBit(devAddr, MPU6050_RA_INT_PIN_CFG, MPU6050_INTCFG_I2C_BYPASS_EN_BIT, enabled);
@@ -161,16 +161,16 @@ void MPU6050_setI2CBypassEnabled(uint8_t enabled) {
 
 void MPU6050_Init(void) 
 {
-	MPU6050_setClockSource(MPU6050_CLOCK_PLL_YGYRO); 		//ÉèÖÃÊ±ÖÓ
-	MPU6050_setFullScaleGyroRange(MPU6050_GYRO_FS_2000);	//ÍÓÂÝÒÇ×î´óÁ¿³Ì +-1000¶ÈÃ¿Ãë
-	MPU6050_setFullScaleAccelRange(MPU6050_ACCEL_FS_2);	//¼ÓËÙ¶È¶È×î´óÁ¿³Ì +-2G
-	MPU6050_setSleepEnabled(0); 						//½øÈë¹¤×÷×´Ì¬
-	MPU6050_setI2CMasterModeEnabled(0);	 			//²»ÈÃMPU6050 ¿ØÖÆAUXI2C
-	MPU6050_setI2CBypassEnabled(0);					//Ö÷¿ØÖÆÆ÷µÄI2CÓë	MPU6050µÄAUXI2C	Ö±Í¨¡£¿ØÖÆÆ÷¿ÉÒÔÖ±½Ó·ÃÎÊHMC5883L
+	MPU6050_setClockSource(MPU6050_CLOCK_PLL_YGYRO); 		//ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+	MPU6050_setFullScaleGyroRange(MPU6050_GYRO_FS_2000);	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ +-1000ï¿½ï¿½Ã¿ï¿½ï¿½
+	MPU6050_setFullScaleAccelRange(MPU6050_ACCEL_FS_2);	//ï¿½ï¿½ï¿½Ù¶È¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ +-2G
+	MPU6050_setSleepEnabled(0); 						//ï¿½ï¿½ï¿½ë¹¤ï¿½ï¿½×´Ì¬
+	MPU6050_setI2CMasterModeEnabled(0);	 			//ï¿½ï¿½ï¿½ï¿½MPU6050 ï¿½ï¿½ï¿½ï¿½AUXI2C
+	MPU6050_setI2CBypassEnabled(0);					//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½I2Cï¿½ï¿½	MPU6050ï¿½ï¿½AUXI2C	Ö±Í¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½Ó·ï¿½ï¿½ï¿½HMC5883L
 }
 
 
-//¶ÁÈ¡MPU6050ÄÚÖÃÎÂ¶È´«¸ÐÆ÷Êý¾Ý
+//ï¿½ï¿½È¡MPU6050ï¿½ï¿½ï¿½ï¿½ï¿½Â¶È´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 int Read_Temperature(void)
 {	   
 	  float Temp;
@@ -179,42 +179,42 @@ int Read_Temperature(void)
 		Temp=(36.53+Temp/340)*10;
 	  return (int)Temp;
 }
-//¶ÁÈ¡MPU6050 YÖáÍÓÂÝÒÇÊý¾Ý
+//ï¿½ï¿½È¡MPU6050 Yï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void ReadGyro_Y(float *Y)
 {
 	short _y;
 	_y = (I2C_ReadOneByte(devAddr,MPU6050_RA_GYRO_YOUT_H)<<8)|I2C_ReadOneByte(devAddr,MPU6050_RA_GYRO_YOUT_L);
 	*Y = _y;
 }
-//¶ÁÈ¡MPU6050 ZÖáÍÓÂÝÒÇÊý¾Ý
+//ï¿½ï¿½È¡MPU6050 Zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void ReadGyro_Z(float *Z)
 {
 	short _z;
 	_z=(I2C_ReadOneByte(devAddr,MPU6050_RA_GYRO_ZOUT_H)<<8)|I2C_ReadOneByte(devAddr,MPU6050_RA_GYRO_ZOUT_L);   
 	*Z = _z;
 }
-//¶ÁÈ¡MPU6050 XÖáÍÓÂÝÒÇÊý¾Ý
+//ï¿½ï¿½È¡MPU6050 Xï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 void ReadGyro_X(float *X)
 {
 	short _x;
 	_x=(I2C_ReadOneByte(devAddr,MPU6050_RA_GYRO_XOUT_H)<<8)|I2C_ReadOneByte(devAddr,MPU6050_RA_GYRO_XOUT_L);   
 	*X = _x;
 }
-//¶ÁÈ¡MPU6050 ZÖá¼ÓËÙ¶ÈÊý¾Ý
+//ï¿½ï¿½È¡MPU6050 Zï¿½ï¿½ï¿½ï¿½Ù¶ï¿½ï¿½ï¿½ï¿½ï¿½
 void ReadAccel_Z(float *Z)
 {
 	short _z;
 	_z=(I2C_ReadOneByte(devAddr,MPU6050_RA_ACCEL_ZOUT_H)<<8)|I2C_ReadOneByte(devAddr,MPU6050_RA_ACCEL_ZOUT_L);   
 	*Z = _z;
 }
-//¶ÁÈ¡MPU6050 XÖá¼ÓËÙ¶ÈÊý¾Ý
+//ï¿½ï¿½È¡MPU6050 Xï¿½ï¿½ï¿½ï¿½Ù¶ï¿½ï¿½ï¿½ï¿½ï¿½
 void ReadAccel_X(float *X)
 {
 	short _x;
 	_x=(I2C_ReadOneByte(devAddr,MPU6050_RA_ACCEL_XOUT_H)<<8)|I2C_ReadOneByte(devAddr,MPU6050_RA_ACCEL_XOUT_L);   
 	*X = _x;
 }
-//¶ÁÈ¡MPU6050 YÖá¼ÓËÙ¶ÈÊý¾Ý
+//ï¿½ï¿½È¡MPU6050 Yï¿½ï¿½ï¿½ï¿½Ù¶ï¿½ï¿½ï¿½ï¿½ï¿½
 void ReadAccel_Y(float *Y)
 {
 	short _y;

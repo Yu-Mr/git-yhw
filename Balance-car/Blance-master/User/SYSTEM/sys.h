@@ -2,50 +2,50 @@
 #define __SYS_H	  
 #include <stm32f10x.h>   
 //////////////////////////////////////////////////////////////////////////////////	 
-//±¾³ÌÐòÖ»¹©Ñ§Ï°Ê¹ÓÃ£¬Î´¾­×÷ÕßÐí¿É£¬²»µÃÓÃÓÚÆäËüÈÎºÎÓÃÍ¾
-//ALIENTEK STM32¿ª·¢°å
-//ÏµÍ³Ê±ÖÓ³õÊ¼»¯£¨ÊÊºÏSTM32F10xÏµÁÐ£©		   
-//ÕýµãÔ­×Ó@ALIENTEK
-//¼¼ÊõÂÛÌ³:www.openedv.com
-//´´½¨ÈÕÆÚ:2010/1/1
-//°æ±¾£ºV1.9
-//°æÈ¨ËùÓÐ£¬µÁ°æ±Ø¾¿¡£
-//Copyright(C) ¹ãÖÝÊÐÐÇÒíµç×Ó¿Æ¼¼ÓÐÏÞ¹«Ë¾ 2009-2019
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½Ñ§Ï°Ê¹ï¿½Ã£ï¿½Î´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½Í¾
+//ALIENTEK STM32ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//ÏµÍ³Ê±ï¿½Ó³ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½Êºï¿½STM32F10xÏµï¿½Ð£ï¿½		   
+//ï¿½ï¿½ï¿½ï¿½Ô­ï¿½ï¿½@ALIENTEK
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì³:www.openedv.com
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:2010/1/1
+//ï¿½æ±¾ï¿½ï¿½V1.9
+//ï¿½ï¿½È¨ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ï¿½ï¿½
+//Copyright(C) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¿Æ¼ï¿½ï¿½ï¿½ï¿½Þ¹ï¿½Ë¾ 2009-2019
 //All rights reserved
 //********************************************************************************
-//V1.4ÐÞ¸ÄËµÃ÷
-//°ÑNVIC KOÁË,Ã»ÓÐÊ¹ÓÃÈÎºÎ¿âÎÄ¼þ!
-//¼ÓÈëÁËJTAG_Setº¯Êý
+//V1.4ï¿½Þ¸ï¿½Ëµï¿½ï¿½
+//ï¿½ï¿½NVIC KOï¿½ï¿½,Ã»ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ÎºÎ¿ï¿½ï¿½Ä¼ï¿½!
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½JTAG_Setï¿½ï¿½ï¿½ï¿½
 //V1.5 20120322
-//Ôö¼Óvoid INTX_DISABLE(void)ºÍvoid INTX_ENABLE(void)Á½¸öº¯Êý
+//ï¿½ï¿½ï¿½ï¿½void INTX_DISABLE(void)ï¿½ï¿½void INTX_ENABLE(void)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //V1.6 20120412
-//1,Ôö¼ÓMSR_MSPº¯Êý												    
-//2,ÐÞ¸ÄVECT_TAB_RAMµÄÄ¬ÈÏÆ«ÒÆ,ÉèÖÃÎª0.
+//1,ï¿½ï¿½ï¿½ï¿½MSR_MSPï¿½ï¿½ï¿½ï¿½												    
+//2,ï¿½Þ¸ï¿½VECT_TAB_RAMï¿½ï¿½Ä¬ï¿½ï¿½Æ«ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Îª0.
 //V1.7 20120818
-//1,Ìí¼ÓucosÖ§³ÖÅäÖÃºêSYSTEM_SUPPORT_UCOS
-//2,ÐÞ¸ÄÁË×¢ÊÍ
-//3,È¥µôÁË²»³£ÓÃº¯ÊýBKP_Write
+//1,ï¿½ï¿½ï¿½ucosÖ§ï¿½ï¿½ï¿½ï¿½ï¿½Ãºï¿½SYSTEM_SUPPORT_UCOS
+//2,ï¿½Þ¸ï¿½ï¿½ï¿½×¢ï¿½ï¿½
+//3,È¥ï¿½ï¿½ï¿½Ë²ï¿½ï¿½ï¿½ï¿½Ãºï¿½ï¿½ï¿½BKP_Write
 //V1.8 20131120
-//1,ÐÞ¸ÄÍ·ÎÄ¼þÎªstm32f10x.h,²»ÔÙÊ¹ÓÃstm32f10x_lib.h¼°ÆäÏà¹ØÍ·ÎÄ¼þ
+//1,ï¿½Þ¸ï¿½Í·ï¿½Ä¼ï¿½Îªstm32f10x.h,ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½stm32f10x_lib.hï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½Ä¼ï¿½
 //V1.9 20150109
-//1,ÐÞ¸ÄÍ·ÎÄ¼þÎªMY_NVIC_Initº¯Êý²¿·Ö´úÂëÒÔÖ§³ÖÏòÁ¿ºÅ´óÓÚ63µÄÖÐ¶ÏµÄÉèÖÃ
-//2,ÐÞ¸ÄWFI_SET/INTX_DISABLE/INTX_ENABLEµÈº¯ÊýµÄÊµÏÖ·½Ê½
+//1,ï¿½Þ¸ï¿½Í·ï¿½Ä¼ï¿½ÎªMY_NVIC_Initï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ï¿½ï¿½Ö§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å´ï¿½ï¿½ï¿½63ï¿½ï¿½ï¿½Ð¶Ïµï¿½ï¿½ï¿½ï¿½ï¿½
+//2,ï¿½Þ¸ï¿½WFI_SET/INTX_DISABLE/INTX_ENABLEï¿½Èºï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½Ö·ï¿½Ê½
 //V2.0 20150322
-//ÐÞ¸ÄSYSTEM_SUPPORT_UCOSÎªSYSTEM_SUPPORT_OS
+//ï¿½Þ¸ï¿½SYSTEM_SUPPORT_UCOSÎªSYSTEM_SUPPORT_OS
 ////////////////////////////////////////////////////////////////////////////////// 	  
 
-//0,²»Ö§³ÖOS
-//1,Ö§³ÖOS
-#define SYSTEM_SUPPORT_OS		0		//¶¨ÒåÏµÍ³ÎÄ¼þ¼ÐÊÇ·ñÖ§³ÖOS
+//0,ï¿½ï¿½Ö§ï¿½ï¿½OS
+//1,Ö§ï¿½ï¿½OS
+#define SYSTEM_SUPPORT_OS		0		//ï¿½ï¿½ï¿½ï¿½ÏµÍ³ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Ö§ï¿½ï¿½OS
 																	    
 	 
-//Î»´ø²Ù×÷,ÊµÏÖ51ÀàËÆµÄGPIO¿ØÖÆ¹¦ÄÜ
-//¾ßÌåÊµÏÖË¼Ïë,²Î¿¼<<CM3È¨ÍþÖ¸ÄÏ>>µÚÎåÕÂ(87Ò³~92Ò³).
-//IO¿Ú²Ù×÷ºê¶¨Òå
+//Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,Êµï¿½ï¿½51ï¿½ï¿½ï¿½Æµï¿½GPIOï¿½ï¿½ï¿½Æ¹ï¿½ï¿½ï¿½
+//ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½Ë¼ï¿½ï¿½,ï¿½Î¿ï¿½<<CM3È¨ï¿½ï¿½Ö¸ï¿½ï¿½>>ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(87Ò³~92Ò³).
+//IOï¿½Ú²ï¿½ï¿½ï¿½ï¿½ê¶¨ï¿½ï¿½
 #define BITBAND(addr, bitnum) ((addr & 0xF0000000)+0x2000000+((addr &0xFFFFF)<<5)+(bitnum<<2)) 
 #define MEM_ADDR(addr)  *((volatile unsigned long  *)(addr)) 
 #define BIT_ADDR(addr, bitnum)   MEM_ADDR(BITBAND(addr, bitnum)) 
-//IO¿ÚµØÖ·Ó³Éä
+//IOï¿½Úµï¿½Ö·Ó³ï¿½ï¿½
 #define GPIOA_ODR_Addr    (GPIOA_BASE+12) //0x4001080C 
 #define GPIOB_ODR_Addr    (GPIOB_BASE+12) //0x40010C0C 
 #define GPIOC_ODR_Addr    (GPIOC_BASE+12) //0x4001100C 
@@ -62,30 +62,30 @@
 #define GPIOF_IDR_Addr    (GPIOF_BASE+8) //0x40011A08 
 #define GPIOG_IDR_Addr    (GPIOG_BASE+8) //0x40011E08 
  
-//IO¿Ú²Ù×÷,Ö»¶Ôµ¥Ò»µÄIO¿Ú!
-//È·±£nµÄÖµÐ¡ÓÚ16!
-#define PAout(n)   BIT_ADDR(GPIOA_ODR_Addr,n)  //Êä³ö 
-#define PAin(n)    BIT_ADDR(GPIOA_IDR_Addr,n)  //ÊäÈë 
+//IOï¿½Ú²ï¿½ï¿½ï¿½,Ö»ï¿½Ôµï¿½Ò»ï¿½ï¿½IOï¿½ï¿½!
+//È·ï¿½ï¿½nï¿½ï¿½ÖµÐ¡ï¿½ï¿½16!
+#define PAout(n)   BIT_ADDR(GPIOA_ODR_Addr,n)  //ï¿½ï¿½ï¿½ 
+#define PAin(n)    BIT_ADDR(GPIOA_IDR_Addr,n)  //ï¿½ï¿½ï¿½ï¿½ 
 
-#define PBout(n)   BIT_ADDR(GPIOB_ODR_Addr,n)  //Êä³ö 
-#define PBin(n)    BIT_ADDR(GPIOB_IDR_Addr,n)  //ÊäÈë 
+#define PBout(n)   BIT_ADDR(GPIOB_ODR_Addr,n)  //ï¿½ï¿½ï¿½ 
+#define PBin(n)    BIT_ADDR(GPIOB_IDR_Addr,n)  //ï¿½ï¿½ï¿½ï¿½ 
 
-#define PCout(n)   BIT_ADDR(GPIOC_ODR_Addr,n)  //Êä³ö 
-#define PCin(n)    BIT_ADDR(GPIOC_IDR_Addr,n)  //ÊäÈë 
+#define PCout(n)   BIT_ADDR(GPIOC_ODR_Addr,n)  //ï¿½ï¿½ï¿½ 
+#define PCin(n)    BIT_ADDR(GPIOC_IDR_Addr,n)  //ï¿½ï¿½ï¿½ï¿½ 
 
-#define PDout(n)   BIT_ADDR(GPIOD_ODR_Addr,n)  //Êä³ö 
-#define PDin(n)    BIT_ADDR(GPIOD_IDR_Addr,n)  //ÊäÈë 
+#define PDout(n)   BIT_ADDR(GPIOD_ODR_Addr,n)  //ï¿½ï¿½ï¿½ 
+#define PDin(n)    BIT_ADDR(GPIOD_IDR_Addr,n)  //ï¿½ï¿½ï¿½ï¿½ 
 
-#define PEout(n)   BIT_ADDR(GPIOE_ODR_Addr,n)  //Êä³ö 
-#define PEin(n)    BIT_ADDR(GPIOE_IDR_Addr,n)  //ÊäÈë
+#define PEout(n)   BIT_ADDR(GPIOE_ODR_Addr,n)  //ï¿½ï¿½ï¿½ 
+#define PEin(n)    BIT_ADDR(GPIOE_IDR_Addr,n)  //ï¿½ï¿½ï¿½ï¿½
 
-#define PFout(n)   BIT_ADDR(GPIOF_ODR_Addr,n)  //Êä³ö 
-#define PFin(n)    BIT_ADDR(GPIOF_IDR_Addr,n)  //ÊäÈë
+#define PFout(n)   BIT_ADDR(GPIOF_ODR_Addr,n)  //ï¿½ï¿½ï¿½ 
+#define PFin(n)    BIT_ADDR(GPIOF_IDR_Addr,n)  //ï¿½ï¿½ï¿½ï¿½
 
-#define PGout(n)   BIT_ADDR(GPIOG_ODR_Addr,n)  //Êä³ö 
-#define PGin(n)    BIT_ADDR(GPIOG_IDR_Addr,n)  //ÊäÈë
+#define PGout(n)   BIT_ADDR(GPIOG_ODR_Addr,n)  //ï¿½ï¿½ï¿½ 
+#define PGin(n)    BIT_ADDR(GPIOG_IDR_Addr,n)  //ï¿½ï¿½ï¿½ï¿½
 /////////////////////////////////////////////////////////////////
-//Ex_NVIC_Config×¨ÓÃ¶¨Òå
+//Ex_NVIC_Config×¨ï¿½Ã¶ï¿½ï¿½ï¿½
 #define GPIO_A 0
 #define GPIO_B 1
 #define GPIO_C 2
@@ -93,30 +93,30 @@
 #define GPIO_E 4
 #define GPIO_F 5
 #define GPIO_G 6 
-#define FTIR   1  //ÏÂ½µÑØ´¥·¢
-#define RTIR   2  //ÉÏÉýÑØ´¥·¢
+#define FTIR   1  //ï¿½Â½ï¿½ï¿½Ø´ï¿½ï¿½ï¿½
+#define RTIR   2  //ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½ï¿½ï¿½
 								   
 
-//JTAGÄ£Ê½ÉèÖÃ¶¨Òå
+//JTAGÄ£Ê½ï¿½ï¿½ï¿½Ã¶ï¿½ï¿½ï¿½
 #define JTAG_SWD_DISABLE   0X02
 #define SWD_ENABLE         0X01
 #define JTAG_SWD_ENABLE    0X00	
 
 /////////////////////////////////////////////////////////////////  
-void Stm32_Clock_Init(u8 PLL);  //Ê±ÖÓ³õÊ¼»¯  
-void Sys_Soft_Reset(void);      //ÏµÍ³Èí¸´Î»
-void Sys_Standby(void);         //´ý»úÄ£Ê½ 	
-void MY_NVIC_SetVectorTable(u32 NVIC_VectTab, u32 Offset);//ÉèÖÃÆ«ÒÆµØÖ·
-void MY_NVIC_PriorityGroupConfig(u8 NVIC_Group);//ÉèÖÃNVIC·Ö×é
-void MY_NVIC_Init(u8 NVIC_PreemptionPriority,u8 NVIC_SubPriority,u8 NVIC_Channel,u8 NVIC_Group);//ÉèÖÃÖÐ¶Ï
-void Ex_NVIC_Config(u8 GPIOx,u8 BITx,u8 TRIM);//Íâ²¿ÖÐ¶ÏÅäÖÃº¯Êý(Ö»¶ÔGPIOA~G)
+void Stm32_Clock_Init(u8 PLL);  //Ê±ï¿½Ó³ï¿½Ê¼ï¿½ï¿½  
+void Sys_Soft_Reset(void);      //ÏµÍ³ï¿½ï¿½Î»
+void Sys_Standby(void);         //ï¿½ï¿½ï¿½ï¿½Ä£Ê½ 	
+void MY_NVIC_SetVectorTable(u32 NVIC_VectTab, u32 Offset);//ï¿½ï¿½ï¿½ï¿½Æ«ï¿½Æµï¿½Ö·
+void MY_NVIC_PriorityGroupConfig(u8 NVIC_Group);//ï¿½ï¿½ï¿½ï¿½NVICï¿½ï¿½ï¿½ï¿½
+void MY_NVIC_Init(u8 NVIC_PreemptionPriority,u8 NVIC_SubPriority,u8 NVIC_Channel,u8 NVIC_Group);//ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½
+void Ex_NVIC_Config(u8 GPIOx,u8 BITx,u8 TRIM);//ï¿½â²¿ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½Ãºï¿½ï¿½ï¿½(Ö»ï¿½ï¿½GPIOA~G)
 void JTAG_Set(u8 mode);
 //////////////////////////////////////////////////////////////////////////////
-//ÒÔÏÂÎª»ã±àº¯Êý
-void WFI_SET(void);		//Ö´ÐÐWFIÖ¸Áî
-void INTX_DISABLE(void);//¹Ø±ÕËùÓÐÖÐ¶Ï
-void INTX_ENABLE(void);	//¿ªÆôËùÓÐÖÐ¶Ï
-void MSR_MSP(u32 addr);	//ÉèÖÃ¶ÑÕ»µØÖ·
+//ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½àº¯ï¿½ï¿½
+void WFI_SET(void);		//Ö´ï¿½ï¿½WFIÖ¸ï¿½ï¿½
+void INTX_DISABLE(void);//ï¿½Ø±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½
+void INTX_ENABLE(void);	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½
+void MSR_MSP(u32 addr);	//ï¿½ï¿½ï¿½Ã¶ï¿½Õ»ï¿½ï¿½Ö·
 
 #endif
 

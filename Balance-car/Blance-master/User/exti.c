@@ -8,24 +8,24 @@ void Control_EXTI_Init(void)
 	EXTI_InitTypeDef EXTI_InitStructure;
 	NVIC_InitTypeDef NVIC_InitStructure;
 	
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO,ENABLE);//外部中断，需要使能AFIO时钟
-	RCC_APB2PeriphClockCmd(EXTI_GPIO_CLK, ENABLE); //使能PB端口时钟
-	GPIO_InitStructure.GPIO_Pin = EXTI_GPIO_PIN;	            //端口配置
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;         //上拉输入
-	GPIO_Init(EXTI_GPIO_PORT, &GPIO_InitStructure);					      //根据设定参数初始化GPIOB 
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO,ENABLE);//锟解部锟叫断ｏ拷锟斤拷要使锟斤拷AFIO时锟斤拷
+	RCC_APB2PeriphClockCmd(EXTI_GPIO_CLK, ENABLE); //使锟斤拷PB锟剿匡拷时锟斤拷
+	GPIO_InitStructure.GPIO_Pin = EXTI_GPIO_PIN;	            //锟剿匡拷锟斤拷锟斤拷
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU;         //锟斤拷锟斤拷锟斤拷锟斤拷
+	GPIO_Init(EXTI_GPIO_PORT, &GPIO_InitStructure);					      //锟斤拷锟斤拷锟借定锟斤拷锟斤拷锟斤拷始锟斤拷GPIOB 
 	
   	GPIO_EXTILineConfig(EXTI_PORTSOURCE,EXTI_PINSOURCE);
 	
   	EXTI_InitStructure.EXTI_Line=EXTI_LINE;
   	EXTI_InitStructure.EXTI_Mode = EXTI_Mode_Interrupt;	
-  	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;//下降沿触发
+  	EXTI_InitStructure.EXTI_Trigger = EXTI_Trigger_Falling;//锟铰斤拷锟截达拷锟斤拷
   	EXTI_InitStructure.EXTI_LineCmd = ENABLE;
-  	EXTI_Init(&EXTI_InitStructure);	 	//根据EXTI_InitStruct中指定的参数初始化外设EXTI寄存器
+  	EXTI_Init(&EXTI_InitStructure);	 	//锟斤拷锟斤拷EXTI_InitStruct锟斤拷指锟斤拷锟侥诧拷锟斤拷锟斤拷始锟斤拷锟斤拷锟斤拷EXTI锟侥达拷锟斤拷
 	
-	NVIC_InitStructure.NVIC_IRQChannel = EXTI_IRQ;			//使能按键所在的外部中断通道
-  	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x01;	//抢占优先级2， 
-  	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x01;					//子优先级1
-  	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;								//使能外部中断通道
+	NVIC_InitStructure.NVIC_IRQChannel = EXTI_IRQ;			//使锟杰帮拷锟斤拷锟斤拷锟节碉拷锟解部锟叫讹拷通锟斤拷
+  	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 0x01;	//锟斤拷占锟斤拷锟饺硷拷2锟斤拷 
+  	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 0x01;					//锟斤拷锟斤拷锟饺硷拷1
+  	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;								//使锟斤拷锟解部锟叫讹拷通锟斤拷
   	NVIC_Init(&NVIC_InitStructure); 
 }
 

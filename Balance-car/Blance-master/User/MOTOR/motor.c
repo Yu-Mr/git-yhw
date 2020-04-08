@@ -4,10 +4,10 @@ static void Motor_GPIO_Init(void)
 {
 	GPIO_InitTypeDef GPIO_InitStructure;
 	
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE); //Ê¹ÄÜPB¶Ë¿ÚÊ±ÖÓ
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE); //Ê¹ï¿½ï¿½PBï¿½Ë¿ï¿½Ê±ï¿½ï¿½
 	
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12|GPIO_Pin_13|GPIO_Pin_14|GPIO_Pin_15;	//¶Ë¿ÚÅäÖÃ
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;      //ÍÆÍìÊä³ö
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_12|GPIO_Pin_13|GPIO_Pin_14|GPIO_Pin_15;	//ï¿½Ë¿ï¿½ï¿½ï¿½ï¿½ï¿½
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;      //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;    
 	GPIO_Init(GPIOB, &GPIO_InitStructure);					   
 }
@@ -21,39 +21,39 @@ void MOTOR_PWM_Init(u16 arr,u16 psc)
 	Motor_GPIO_Init();	
 	
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM1, ENABLE);// 
- 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA , ENABLE);  //Ê¹ÄÜGPIOÍâÉèÊ±ÖÓÊ¹ÄÜ
+ 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA , ENABLE);  //Ê¹ï¿½ï¿½GPIOï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Ê¹ï¿½ï¿½
 	
-	//Êä³öTIM1 CH1 CH4µÄPWMÂö³å²¨ÐÎ
+	//ï¿½ï¿½ï¿½TIM1 CH1 CH4ï¿½ï¿½PWMï¿½ï¿½ï¿½å²¨ï¿½ï¿½
 	//GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8|GPIO_Pin_11; //TIM_CH1 //TIM_CH4
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9|GPIO_Pin_11; //TIM_CH2 //TIM_CH4
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;  //¸´ÓÃÍÆÍìÊä³ö
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP;  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 	
-	TIM_TimeBaseStructure.TIM_Period = arr; //ÉèÖÃÔÚÏÂÒ»¸ö¸üÐÂÊÂ¼þ×°Èë»î¶¯µÄ×Ô¶¯ÖØ×°ÔØ¼Ä´æÆ÷ÖÜÆÚµÄÖµ	 
-	TIM_TimeBaseStructure.TIM_Prescaler =psc; //ÉèÖÃÓÃÀ´×÷ÎªTIMxÊ±ÖÓÆµÂÊ³ýÊýµÄÔ¤·ÖÆµÖµ  ²»·ÖÆµ
-	TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1; //ÉèÖÃÊ±ÖÓ·Ö¸î:TDTS = Tck_tim
-	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;  //TIMÏòÉÏ¼ÆÊýÄ£Ê½
-	TIM_TimeBaseInit(TIM1, &TIM_TimeBaseStructure); //¸ù¾ÝTIM_TimeBaseInitStructÖÐÖ¸¶¨µÄ²ÎÊý³õÊ¼»¯TIMxµÄÊ±¼ä»ùÊýµ¥Î»
+	TIM_TimeBaseStructure.TIM_Period = arr; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½×°ï¿½ï¿½î¶¯ï¿½ï¿½ï¿½Ô¶ï¿½ï¿½ï¿½×°ï¿½Ø¼Ä´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½Öµ	 
+	TIM_TimeBaseStructure.TIM_Prescaler =psc; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªTIMxÊ±ï¿½ï¿½Æµï¿½Ê³ï¿½ï¿½ï¿½ï¿½ï¿½Ô¤ï¿½ï¿½ÆµÖµ  ï¿½ï¿½ï¿½ï¿½Æµ
+	TIM_TimeBaseStructure.TIM_ClockDivision = TIM_CKD_DIV1; //ï¿½ï¿½ï¿½ï¿½Ê±ï¿½Ó·Ö¸ï¿½:TDTS = Tck_tim
+	TIM_TimeBaseStructure.TIM_CounterMode = TIM_CounterMode_Up;  //TIMï¿½ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½Ä£Ê½
+	TIM_TimeBaseInit(TIM1, &TIM_TimeBaseStructure); //ï¿½ï¿½ï¿½ï¿½TIM_TimeBaseInitStructï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½TIMxï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»
 
  
-	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1; //Ñ¡Ôñ¶¨Ê±Æ÷Ä£Ê½:TIMÂö³å¿í¶Èµ÷ÖÆÄ£Ê½1
-	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable; //±È½ÏÊä³öÊ¹ÄÜ
-	TIM_OCInitStructure.TIM_Pulse = 0;                            //ÉèÖÃ´ý×°Èë²¶»ñ±È½Ï¼Ä´æÆ÷µÄÂö³åÖµ
-	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;     //Êä³ö¼«ÐÔ:TIMÊä³ö±È½Ï¼«ÐÔ¸ß
+	TIM_OCInitStructure.TIM_OCMode = TIM_OCMode_PWM1; //Ñ¡ï¿½ï¿½Ê±ï¿½ï¿½Ä£Ê½:TIMï¿½ï¿½ï¿½ï¿½ï¿½Èµï¿½ï¿½ï¿½Ä£Ê½1
+	TIM_OCInitStructure.TIM_OutputState = TIM_OutputState_Enable; //ï¿½È½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½
+	TIM_OCInitStructure.TIM_Pulse = 0;                            //ï¿½ï¿½ï¿½Ã´ï¿½×°ï¿½ë²¶ï¿½ï¿½È½Ï¼Ä´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
+	TIM_OCInitStructure.TIM_OCPolarity = TIM_OCPolarity_High;     //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:TIMï¿½ï¿½ï¿½ï¿½È½Ï¼ï¿½ï¿½Ô¸ï¿½
 	//TIM_OC1Init(TIM1, &TIM_OCInitStructure); 
 	TIM_OC2Init(TIM1, &TIM_OCInitStructure);  
 	TIM_OC4Init(TIM1, &TIM_OCInitStructure);  
 
-	TIM_CtrlPWMOutputs(TIM1,ENABLE);	//MOE Ö÷Êä³öÊ¹ÄÜ	
+	TIM_CtrlPWMOutputs(TIM1,ENABLE);	//MOE ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½	
 
-	//TIM_OC1PreloadConfig(TIM1, TIM_OCPreload_Enable);  //CH1Ô¤×°ÔØÊ¹ÄÜ
-	TIM_OC2PreloadConfig(TIM1, TIM_OCPreload_Enable);  //CH1Ô¤×°ÔØÊ¹ÄÜ	 	
-	TIM_OC4PreloadConfig(TIM1, TIM_OCPreload_Enable);  //CH4Ô¤×°ÔØÊ¹ÄÜ	 
+	//TIM_OC1PreloadConfig(TIM1, TIM_OCPreload_Enable);  //CH1Ô¤×°ï¿½ï¿½Ê¹ï¿½ï¿½
+	TIM_OC2PreloadConfig(TIM1, TIM_OCPreload_Enable);  //CH1Ô¤×°ï¿½ï¿½Ê¹ï¿½ï¿½	 	
+	TIM_OC4PreloadConfig(TIM1, TIM_OCPreload_Enable);  //CH4Ô¤×°ï¿½ï¿½Ê¹ï¿½ï¿½	 
 	
-	TIM_ARRPreloadConfig(TIM1, ENABLE); //Ê¹ÄÜTIMxÔÚARRÉÏµÄÔ¤×°ÔØ¼Ä´æÆ÷
+	TIM_ARRPreloadConfig(TIM1, ENABLE); //Ê¹ï¿½ï¿½TIMxï¿½ï¿½ARRï¿½Ïµï¿½Ô¤×°ï¿½Ø¼Ä´ï¿½ï¿½ï¿½
 	
-	TIM_Cmd(TIM1, ENABLE);  //Ê¹ÄÜTIM1
+	TIM_Cmd(TIM1, ENABLE);  //Ê¹ï¿½ï¿½TIM1
  
 } 
 

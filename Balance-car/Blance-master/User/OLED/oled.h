@@ -29,8 +29,8 @@
 #endif
 
 #if 1
-#define OLED_CMD 0   //ÃüÁîÉùÃ÷
-#define OLED_DATA 1 //Êý¾ÝÉùÃ÷
+#define OLED_CMD 0   //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define OLED_DATA 1 //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 /*
 #define OLED_RST_Clr 	PAout(2)=0   //RST
 #define OLED_RST = 1 	PAout(2)=1   //RST
@@ -52,20 +52,20 @@
 #endif
 
  
-void SPI_WriteByte(uint8_t addr,uint8_t data); //Ïò¼Ä´æÆ÷µØÖ·Ð´Ò»¸öbyteµÄÊý¾Ý
-void WriteCmd(unsigned char cmd); //Ð´ÃüÁî
-void WriteData(unsigned char data); //Ð´Êý¾Ý 
-void OLED_Init(void);//³õÊ¼»¯OLED
-void OLED_ON(void);//»½ÐÑOLED
-void OLED_OFF(void);//OLEDÐÝÃß
-void OLED_Refresh_Gram(void);//¸üÐÂÏÔ´æµ½OLED
-void OLED_Clear(void);//ÇåÆÁ
-void OLED_DrawPoint(u8 x,u8 y,u8 t);//»­µã
-void OLED_Fill(u8 x1,u8 y1,u8 x2,u8 y2,u8 dot);//Ìî³ä
-void OLED_ShowChar(u8 x,u8 y,u8 chr,u8 size,u8 mode);//ÏÔÊ¾×Ö·û
-void OLED_ShowNum(u8 x,u8 y,u32 num,u8 len,u8 size);//ÏÔÊ¾2¸öÊý×Ö
-void OLED_ShowString(u8 x,u8 y,const u8 *p,u8 size);//ÏÔÊ¾×Ö·û´®
-void OLED_chinese(u8 x,u8 y,u8*chr,u8 size,u8 mode);//ÏÔÊ¾ºº×Ö
+void SPI_WriteByte(uint8_t addr,uint8_t data); //ï¿½ï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½Ö·Ð´Ò»ï¿½ï¿½byteï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+void WriteCmd(unsigned char cmd); //Ð´ï¿½ï¿½ï¿½ï¿½
+void WriteData(unsigned char data); //Ð´ï¿½ï¿½ï¿½ï¿½ 
+void OLED_Init(void);//ï¿½ï¿½Ê¼ï¿½ï¿½OLED
+void OLED_ON(void);//ï¿½ï¿½ï¿½ï¿½OLED
+void OLED_OFF(void);//OLEDï¿½ï¿½ï¿½ï¿½
+void OLED_Refresh_Gram(void);//ï¿½ï¿½ï¿½ï¿½ï¿½Ô´æµ½OLED
+void OLED_Clear(void);//ï¿½ï¿½ï¿½ï¿½
+void OLED_DrawPoint(u8 x,u8 y,u8 t);//ï¿½ï¿½ï¿½ï¿½
+void OLED_Fill(u8 x1,u8 y1,u8 x2,u8 y2,u8 dot);//ï¿½ï¿½ï¿½
+void OLED_ShowChar(u8 x,u8 y,u8 chr,u8 size,u8 mode);//ï¿½ï¿½Ê¾ï¿½Ö·ï¿½
+void OLED_ShowNum(u8 x,u8 y,u32 num,u8 len,u8 size);//ï¿½ï¿½Ê¾2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+void OLED_ShowString(u8 x,u8 y,const u8 *p,u8 size);//ï¿½ï¿½Ê¾ï¿½Ö·ï¿½ï¿½ï¿½
+void OLED_chinese(u8 x,u8 y,u8*chr,u8 size,u8 mode);//ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½
 
 
 
