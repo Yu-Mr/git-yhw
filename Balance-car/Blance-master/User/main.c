@@ -19,7 +19,7 @@ u8 show;  //��ʾ��־
 
 int main(void)
 {
-		
+		//first commit-yhw
 	NVIC_PriorityGroupConfig( NVIC_PriorityGroup_2);
 	delay_init(72);
 	//uart_init(115200);
